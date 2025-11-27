@@ -97,47 +97,6 @@ npm run dev
 4. **Verify Claims**: For each claim, backend calls Perplexity API (or OpenAI) to verify and find sources
 5. **Display Results**: Frontend displays slides with extracted facts, verification status, and source links
 
-## API Routes
-
-### POST `/api/verify`
-
-Accepts extracted slide text and returns verified claims.
-
-**Request Body:**
-```json
-{
-  "slides": [
-    {
-      "slideNumber": 1,
-      "text": "Market size: $4.2B..."
-    }
-  ]
-}
-```
-
-**Response:**
-```json
-{
-  "slides": [
-    {
-      "slideNumber": 1,
-      "text": "...",
-      "facts": [
-        {
-          "claim": "Market size: $4.2B",
-          "verified": true,
-          "verdict": "Verified",
-          "explanation": "...",
-          "sources": [
-            {"title": "Source Name", "url": "https://..."}
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
 ## Environment Variables
 
 - `ANTHROPIC_API_KEY` (recommended): Anthropic API key for claim extraction and verification (primary)
@@ -167,8 +126,4 @@ npm run lint
 - The app prioritizes Anthropic Claude (claude-3-5-sonnet) for better quality
 - Falls back to OpenAI if Anthropic not available
 - Perplexity API provides the best source citations when available
-
-## License
-
-MIT
 
